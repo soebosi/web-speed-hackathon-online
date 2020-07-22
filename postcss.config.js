@@ -5,6 +5,7 @@ const path = require('path');
 const importPlugin = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
+const calc = require('postcss-calc');
 
 module.exports = {
   plugins: [
@@ -13,12 +14,13 @@ module.exports = {
     }),
 
     autoprefixer(),
+    calc(),
 
-    customProperties(),
+    customProperties({ preserve: false }),
     require('cssnano')({
       preset: 'default',
     }),
   ],
 
-  map: true,
+  map: false,
 };
