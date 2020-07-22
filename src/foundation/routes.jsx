@@ -1,24 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import loadable from '@loadable/component'
 
-const Entrance = loadable(async () => {
-  const { Entrance } = await import('../pages/entrance');
-  return Entrance;
-});
-const BlogHome = loadable(async () => {
-  const { BlogHome } = import('../pages/blog_home');
-  return BlogHome;
-});
-const Entry = loadable(async () => {
-  const { Entry } = import('../pages/entry');
-  return Entry;
-});
-const NotFound = loadable(async () => {
-  const { NotFound } = import('../pages/not_found');
-  return NotFound;
-});
+import { Entrance } from '../pages/entrance';
+import { BlogHome } from '../pages/blog_home';
+import { Entry } from '../pages/entry';
+import { NotFound } from '../pages/not_found';
 
 export function Routes() {
   const error = useSelector((state) => state.error);
