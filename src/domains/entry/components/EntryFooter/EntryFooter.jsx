@@ -1,5 +1,6 @@
 import React from 'react';
 import * as dayjs from 'dayjs'
+import * as relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from 'react-router-dom';
 
 import { AmidaLikeButton } from '../AmidaLikeButton';
@@ -7,6 +8,7 @@ import { TwitterShareButton } from '../TwitterShareButton';
 import { FacebookShareButton } from '../FacebookShareButton';
 import { HatenaBookmarkButton } from '../HatenaBookmarkButton';
 
+dayjs.extend(relativeTime);
 export function EntryFooter({ location, likeCount, publishedAt, onClickLike }) {
   return (
     <div className="entry-EntryFooter">

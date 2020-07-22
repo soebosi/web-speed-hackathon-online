@@ -1,8 +1,11 @@
 import React from 'react';
 import * as dayjs from 'dayjs'
+import * as relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from 'react-router-dom';
 
 import { ProportionalImage } from '../../../../foundation/components/ProportionalImage';
+
+dayjs.extend(relativeTime);
 
 export function CommentListItem({ comment }) {
   return (
