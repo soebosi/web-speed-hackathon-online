@@ -1,9 +1,17 @@
-import timeout from 'race-timeout';
 import axiosMod from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 
 const TIMEOUT = 20 * 1000;
 const API_ENDPOINT = window.location.origin;
+
+const timeout = (p, ms) => {
+  return Promise.race([
+    p,
+    new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    }),
+  ]);
+};
 
 const axios = axiosMod.create({
   baseURL: API_ENDPOINT,
